@@ -35,4 +35,14 @@ public class Pacote {
     @OneToMany(mappedBy = "pacote", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rastreamento> historicoRastreamento = new ArrayList<>();
 
+
+
+    public void setStatus(String status) {
+        if (status.equals("pendente") || status.equals("em trânsito") || status.equals("entregue")) {
+            this.status = status;
+        } else {
+            throw new IllegalArgumentException("Status inválido. Os valores permitidos são: pendente, em trânsito, entregue.");
+        }
+    }
+
 }

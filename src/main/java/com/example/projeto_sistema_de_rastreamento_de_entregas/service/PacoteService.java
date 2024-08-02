@@ -14,7 +14,7 @@ public class PacoteService {
     Rastreamento rastreamento;
     Pacote pacote;
     
-    public void atualizarStatus(String novoStatus, Date dataHora, String localizacao){
+    public Pacote atualizarStatus(String novoStatus, Date dataHora, String localizacao){
         // Atualiza o status do pacote e registra o rastreamento.
         rastreamento.setStatus(novoStatus);
 

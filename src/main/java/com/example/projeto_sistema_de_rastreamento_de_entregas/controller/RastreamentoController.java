@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto_sistema_de_rastreamento_de_entregas.model.Rastreamento;
+import com.example.projeto_sistema_de_rastreamento_de_entregas.repository.RastreamentoRepository;
 import com.example.projeto_sistema_de_rastreamento_de_entregas.service.RastreamentoService;
 
 @RestController
@@ -18,10 +19,13 @@ public class RastreamentoController {
     @Autowired
     private RastreamentoService rastreamentoService;
 
+    @Autowired
+    private RastreamentoRepository rastreamentoRepository;
+
     // - GET /rastreamentos/{id} - Consulta todos os rastreamentos de um pacote
     // específico.
     @GetMapping("/{id}")
     public List<Rastreamento> getRastreamentosByPacoteId(@PathVariable String pacoteId) {
-        return rastreamentoService.findByPacoteId(pacoteId);
+        return rastreamentoRepository.findByPacoteId(pacoteId);
     }
 }

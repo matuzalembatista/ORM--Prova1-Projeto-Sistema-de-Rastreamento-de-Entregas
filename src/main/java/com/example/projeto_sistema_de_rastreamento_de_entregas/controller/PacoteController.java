@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto_sistema_de_rastreamento_de_entregas.model.Pacote;
+import com.example.projeto_sistema_de_rastreamento_de_entregas.repository.PacoteRepository;
 import com.example.projeto_sistema_de_rastreamento_de_entregas.service.PacoteService;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,24 +26,24 @@ public class PacoteController {
 
     @Autowired
     private PacoteService pacoteService;
+    private PacoteRepository pacoteRepository;
 
     // - GET /pacotes - Consulta todos os pacotes.
     @GetMapping
     public List<Pacote> getAllPacotes() {
-        return pacoteService.findAll();
+        return pacoteRepository.findAll();
     }
 
     // - POST /pacotes - Adiciona um novo pacote.
     @PostMapping()
     public String newPacote(@RequestBody Pacote pacote) {
-        return pacoteService.save(pacote);
+        return pacoteRepository.save(pacote);
     }
 
     // - GET /pacotes/{id} - Consulta um pacote específico.
     @GetMapping("/id")
     public ResponseEntity<Pacote> getPacoteById(@RequestParam String id) {
-        Pacote pacote = pacoteService.findById(id);
-        pacoteService.
+        Pacote pacote = pacoteRepository.findById(id);
 
         return ResponseEntity.ok(pacote);
     }
@@ -58,7 +59,7 @@ public class PacoteController {
     // - DELETE /pacotes/{id} - Remove um pacote.
     @DeleteMapping("/{id}")
     public void deletePacote(@PathVariable Pacote id) {
-        boolean deleted = pacoteService.delete(id);
+        pacoteRepository.delete(id);
     }
 
 }

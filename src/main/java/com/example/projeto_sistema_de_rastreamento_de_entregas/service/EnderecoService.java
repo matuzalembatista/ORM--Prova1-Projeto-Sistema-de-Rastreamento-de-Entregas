@@ -14,14 +14,11 @@ public class EnderecoService {
 
     public String getEnderecoCompleto() {
         // Retorna o endereço completo formatado.
-        String enderecoFormatado = 
-             endereco.getRua() + ", " +
+        return endereco.getRua() + ", " +
                 endereco.getNumero() + ", " +
                 endereco.getCidade() + ", " +
                 endereco.getEstado() + ", " +
                 endereco.getCep();
-
-        return enderecoFormatado;
     }
 
 }

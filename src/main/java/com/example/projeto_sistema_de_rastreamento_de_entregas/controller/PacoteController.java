@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RequestMapping("/pacotes")
 public class PacoteController {
 
-    @Autowired
     private PacoteService pacoteService;
     private PacoteRepository pacoteRepository;
 

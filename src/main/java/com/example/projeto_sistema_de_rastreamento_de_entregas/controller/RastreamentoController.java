@@ -16,10 +16,8 @@ import com.example.projeto_sistema_de_rastreamento_de_entregas.service.Rastreame
 @RequestMapping("/rastreamentos")
 public class RastreamentoController {
 
-    @Autowired
     private RastreamentoService rastreamentoService;
 
-    @Autowired
     private RastreamentoRepository rastreamentoRepository;
 
     // - GET /rastreamentos/{id} - Consulta todos os rastreamentos de um pacote

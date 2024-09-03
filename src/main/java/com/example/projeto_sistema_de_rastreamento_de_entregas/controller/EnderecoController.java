@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/enderecos")
 public class EnderecoController {
 
-    @Autowired
     private EnderecoService enderecoService;
 
-    @Autowired
     private EnderecoRepository enderecoRepository;
 
     //    - GET /enderecos - Consulta todos os endereços.

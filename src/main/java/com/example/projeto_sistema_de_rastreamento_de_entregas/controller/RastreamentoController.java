@@ -20,7 +20,7 @@ public class RastreamentoController {
 
     // - GET /rastreamentos/{id} - Consulta todos os rastreamentos de um pacote
     // específico.
-    @GetMapping("/{id}")
+    @GetMapping("/")
     public List<Rastreamento> getRastreamentosByPacoteId(@PathVariable String pacoteId) {
         return rastreamentoRepository.findByPacoteId(pacoteId);
     }
